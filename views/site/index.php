@@ -78,15 +78,15 @@ $this->title = 'My Yii Application';
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <h2>Category</h2>
-                    <div class="panel-group category-products" id="accordian">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <ul class="catalog">
+<!--                    <div class="category-products" id="accordian">-->
+<!--                        <div class="panel panel-default">-->
+<!--                            <div class="panel-heading">-->
+                                <ul class="catalog category-products">
                                     <?= \app\widgets\MenuWidget::widget(['tpl' => 'menu']) ?>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                         <div class="panel panel-default">
                             <div class="panel-heading">
