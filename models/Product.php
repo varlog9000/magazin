@@ -15,7 +15,7 @@ class Product extends ActiveRecord
 
     public static function tableName()
     {
-        return 'category';
+        return 'product';
     }
 
     public function getCategory()
