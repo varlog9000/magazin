@@ -1,4 +1,4 @@
-<li>
+<li class="panel-title">
     <a href="">
         <?= $category['name'] ?>
         <?php if (isset($category['childs'])) : ?>

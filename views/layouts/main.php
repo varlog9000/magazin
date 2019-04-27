@@ -155,9 +155,9 @@ ltAppAsset::register($this);
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
-    <ul class="catalog">
-        <?= \app\widgets\MenuWidget::widget(['tpl' => 'menu']) ?>
-    </ul>
+<!--    <ul class="catalog">-->
+<!--        --><?//= \app\widgets\MenuWidget::widget(['tpl' => 'menu']) ?>
+<!--    </ul>-->
     <?= $content; ?>
 
     <footer id="footer"><!--Footer-->
