@@ -3,8 +3,9 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use app\widgets\MenuWidget;
 
-$this->title = 'My Yii Application';
+//$this->title = 'My Yii Application';
 
 ?>
 <section id="advertisement">
@@ -20,7 +21,7 @@ $this->title = 'My Yii Application';
                 <div class="left-sidebar">
                     <h2>Category</h2>
                     <ul class="catalog category-products">
-                        <?= \app\widgets\MenuWidget::widget(['tpl' => 'menu']) ?>
+                        <?= MenuWidget::widget(['tpl' => 'menu']) ?>
                     </ul>
 
                     <div class="brands_products"><!--brands_products-->
@@ -56,7 +57,7 @@ $this->title = 'My Yii Application';
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Features Items</h2>
+                    <h2 class="title text-center"><?= $category->name ?></h2>
                     <? if (!empty($products)): ?>
                         <? $i = 0;
                         foreach ($products as $product) : ?>
@@ -67,14 +68,14 @@ $this->title = 'My Yii Application';
                                             <?= Html::img("@web/images/product/{$product->img}", ['alt' => $product->name]) ?>
                                             <!--                                            <img src="/images/shop/product12.jpg" alt=""/>-->
                                             <h2>$<?= $product->price ?></h2>
-                                            <p><?= $product->name ?></p>
+                                            <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>"><p><?= $hit->name ?>"><p><?= $product->name ?></p></a>
                                             <a href="#" class="btn btn-default add-to-cart"><i
                                                         class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
                                         <div class="product-overlay">
                                             <div class="overlay-content">
                                                 <h2>$<?= $product->price ?></h2>
-                                                <p><?= $product->name ?></p>
+                                                <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>"><p><?= $hit->name ?>"><p><?= $product->name ?></p></a>
                                                 <a href="#" class="btn btn-default add-to-cart"><i
                                                             class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
@@ -93,16 +94,20 @@ $this->title = 'My Yii Application';
                                 <div class="clearfix"></div>
                             <? endif; ?>
                         <? endforeach; ?>
+                        <div class="clearfix"></div>
+                        <? echo \yii\widgets\LinkPager::widget(
+                            ['pagination' => $pages,
+                            ]) ?>
                     <? else : ?>
                         <h2>Здесь товаров пока нет :(</h2>
                     <? endif; ?>
-                    <div class="clearfix"></div>
-                    <ul class="pagination">
-                        <li class="active"><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">&raquo;</a></li>
-                    </ul>
+
+                    <!--                    <ul class="pagination">-->
+                    <!--                        <li class="active"><a href="">1</a></li>-->
+                    <!--                        <li><a href="">2</a></li>-->
+                    <!--                        <li><a href="">3</a></li>-->
+                    <!--                        <li><a href="">&raquo;</a></li>-->
+                    <!--                    </ul>-->
                 </div><!--features_items-->
             </div>
         </div>

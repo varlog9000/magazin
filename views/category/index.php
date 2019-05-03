@@ -4,7 +4,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'My Yii Application';
+//$this->title = 'My Yii Application';
 
 ?>
 <section id="slider"><!--slider-->
@@ -240,26 +240,28 @@ $this->title = 'My Yii Application';
                                             <?= Html::img("@web/images/product/{$hit->img}", ['alt' => $hit->name]) ?>
                                             <img src="/images/home/product1.jpg" alt=""/>
                                             <h2>$<?= $hit->price ?></h2>
-                                            <p><?= $hit->name ?></p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i
+                                            <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"><p><?= $hit->name ?></p></a>
+                                            <a href="#"
+                                               class="btn btn-default add-to-cart"><i
                                                         class="fa fa-shopping-cart"></i>Add
                                                 to cart</a>
                                         </div>
                                         <div class="product-overlay">
                                             <div class="overlay-content">
                                                 <h2>$<?= $hit->price ?></h2>
-                                                <p><?= $hit->name ?></p>
+                                                <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>">
+                                                    <p><?= $hit->name ?></p></a>
                                                 <a href="#" class="btn btn-default add-to-cart"><i
                                                             class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
                                         </div>
                                     </div>
                                     <? if ($hit->new): ?>
-<!--                                        <img src="images/home/new.png" class="new" alt=""/>-->
+                                        <!--                                        <img src="images/home/new.png" class="new" alt=""/>-->
                                         <?= Html::img('@web/images/home/new.png', ['alt' => 'Новинка', 'class' => 'new']) ?>
                                     <? elseif ($hit->sale): ?>
                                         <?= Html::img('@web/images/home/sale.png', ['alt' => 'Распродажа', 'class' => 'new']) ?>
-<!--                                        <img src="images/home/sale.png" class="new" alt=""/>-->
+                                        <!--                                        <img src="images/home/sale.png" class="new" alt=""/>-->
                                     <? endif; ?>
                                     <div class="choose">
                                         <ul class="nav nav-pills nav-justified">
