@@ -68,14 +68,23 @@ use app\widgets\MenuWidget;
                                             <?= Html::img("@web/images/product/{$product->img}", ['alt' => $product->name]) ?>
                                             <!--                                            <img src="/images/shop/product12.jpg" alt=""/>-->
                                             <h2>$<?= $product->price ?></h2>
-                                            <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>"><p><?= $hit->name ?>"><p><?= $product->name ?></p></a>
+                                            <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>">
+                                                <p><?= $product->name ?></p></a>
                                             <a href="#" class="btn btn-default add-to-cart"><i
                                                         class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
+                                        <? if ($product->new): ?>
+                                            <!--                                        <img src="images/home/new.png" class="new" alt=""/>-->
+                                            <?= Html::img('@web/images/home/new.png', ['alt' => 'Новинка', 'class' => 'new']) ?>
+                                        <? elseif ($product->sale): ?>
+                                            <?= Html::img('@web/images/home/sale.png', ['alt' => 'Распродажа', 'class' => 'new']) ?>
+                                            <!--                                        <img src="images/home/sale.png" class="new" alt=""/>-->
+                                        <? endif; ?>
                                         <div class="product-overlay">
                                             <div class="overlay-content">
                                                 <h2>$<?= $product->price ?></h2>
-                                                <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>"><p><?= $hit->name ?>"><p><?= $product->name ?></p></a>
+                                                <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>">
+                                                    <p><?= $product->name ?></p></a>
                                                 <a href="#" class="btn btn-default add-to-cart"><i
                                                             class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
