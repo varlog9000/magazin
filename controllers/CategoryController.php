@@ -12,6 +12,7 @@ use app\models\Category;
 use app\models\Product;
 use Yii;
 use yii\data\Pagination;
+use yii\web\HttpException;
 
 
 class CategoryController extends AppController
@@ -28,14 +29,31 @@ class CategoryController extends AppController
 
     public function actionView($id)
     {
-        $id = Yii::$app->request->get('id');
+//        $id = Yii::$app->request->get('id');
 //        debug($id, 'id');
 //        $products = Product::find()->where(['category_id'=>$id])->all();
-        $productsCount = Product::find()->where(['category_id' => $id]);
-        $pages = new Pagination(['totalCount' => $productsCount->count(), 'pageSize' => 3, 'forcePageParam'=>false, 'pageSizeParam' => false]);
-        $products = $productsCount->offset($pages->offset)->limit($pages->limit)->all();
         $category = Category::findOne($id);
+        if (empty($category))
+            throw new HttpException(404, 'Нет такой категории ');
+        $productsCount = Product::find()->where(['category_id' => $id]);
+        $pages = new Pagination(['totalCount' => $productsCount->count(), 'pageSize' => 3, 'forcePageParam' => false, 'pageSizeParam' => false]);
+        $products = $productsCount->offset($pages->offset)->limit($pages->limit)->all();
+
         $this->setMeta("E Shopper | " . $category->name, $category->keywords, $category->description);
         return $this->render('view', compact('products', 'pages', 'category'));
+    }
+
+    public function actionSearch()
+    {
+        $q = trim(Yii::$app->request->get('q'));
+        if (!$q) return $this->render('search');
+
+        $productsCount = Product::find()->where(['like', 'name', $q]);
+        $pages = new Pagination(['totalCount' => $productsCount->count(), 'pageSize' => 3, 'forcePageParam' => false, 'pageSizeParam' => false]);
+        $products = $productsCount->offset($pages->offset)->limit($pages->limit)->all();
+
+        $this->setMeta("E Shopper | Search");
+        return $this->render('search', compact('pages', 'products', 'q'));
+
     }
 }

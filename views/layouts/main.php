@@ -67,7 +67,7 @@ ltAppAsset::register($this);
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="<?=  yii\helpers\Url::home()  ?>"><?= Html::img('@web/images/home/logo.png',['alt'=>'E Shopper']) ?></a>
+                            <a href="<?= yii\helpers\Url::home() ?>"><?= Html::img('@web/images/home/logo.png', ['alt' => 'E Shopper']) ?></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -147,17 +147,19 @@ ltAppAsset::register($this);
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <div class="search_box pull-right">
-                            <input type="text" placeholder="Search"/>
-                        </div>
+                        <form method="get" action="<?= \yii\helpers\Url::to(['category/search']) ?>">
+                            <div class="search_box pull-right">
+                                <input type="text" placeholder="Search" name="q">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div><!--/header-bottom-->
     </header><!--/header-->
-<!--    <ul class="catalog">-->
-<!--        --><?//= \app\widgets\MenuWidget::widget(['tpl' => 'menu']) ?>
-<!--    </ul>-->
+    <!--    <ul class="catalog">-->
+    <!--        --><? //= \app\widgets\MenuWidget::widget(['tpl' => 'menu']) ?>
+    <!--    </ul>-->
     <?= $content; ?>
 
     <footer id="footer"><!--Footer-->
