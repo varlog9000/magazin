@@ -5,6 +5,23 @@ $('#sl2').slider();
 $('.catalog').dcAccordion({speed: 200})
 ;
 
+$('.add-to-cart').on('click', function (e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    $.ajax({
+        url: 'cart/add',
+        data: {id: id},
+        type: 'GET',
+        success: function (res) {
+            console.log(res);
+        },
+        error: function () {
+            alert('Eror');
+        }
+    })
+
+});
+
 var RGBChange = function () {
     $('#RGB').css('background', 'rgb(' + r.getValue() + ',' + g.getValue() + ',' + b.getValue() + ')')
 };

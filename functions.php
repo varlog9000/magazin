@@ -11,7 +11,7 @@ function debug($arr, $name = null)
     if ($name) {
         $htmlName = "$name: ";
     }
-    echo '<pre>';
+    echo $htmlName. '<pre>';
     print_r($arr);
     echo '</pre>';
 }

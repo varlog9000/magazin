@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 //$this->title = 'My Yii Application';
 
@@ -240,18 +241,19 @@ use yii\helpers\Html;
                                             <?= Html::img("@web/images/product/{$hit->img}", ['alt' => $hit->name]) ?>
                                             <img src="/images/home/product1.jpg" alt=""/>
                                             <h2>$<?= $hit->price ?></h2>
-                                            <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>"><p><?= $hit->name ?></p></a>
-                                            <a href="#"
-                                               class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add
-                                                to cart</a>
+                                            <a href="<?= Url::to(['product/view', 'id' => $hit->id]) ?>">
+                                                <p><?= $hit->name ?></p></a>
+                                            <a href="<?= Url::to(['cart/add', 'id' => $hit->id]) ?>" data-id="<?= $hit->id ?>"
+                                               class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart">
+                                                </i>Add to cart</a>
                                         </div>
                                         <div class="product-overlay">
                                             <div class="overlay-content">
                                                 <h2>$<?= $hit->price ?></h2>
-                                                <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $hit->id]) ?>">
+                                                <a href="<?= Url::to(['product/view', 'id' => $hit->id]) ?>">
                                                     <p><?= $hit->name ?></p></a>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
+                                                <a href="<?= Url::to(['cart/add', 'id' => $hit->id]) ?>" data-id="<?= $hit->id ?>"
+                                                   class="btn btn-default add-to-cart"><i
                                                             class="fa fa-shopping-cart"></i>Add to cart</a>
                                             </div>
                                         </div>
