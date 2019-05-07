@@ -48,7 +48,7 @@ use app\widgets\MenuWidget;
 
                 </div>
             </div>
-<!--            --><?//= debug($product) ?>
+            <!--            --><? //= debug($product) ?>
             <? //= debug($product->category) ?>
             <div class="col-sm-9 padding-right">
                 <div class="product-details"><!--product-details-->
@@ -92,13 +92,11 @@ use app\widgets\MenuWidget;
                     <div class="col-sm-7">
                         <div class="product-information"><!--/product-information-->
                             <? if ($product->new): ?>
-                                <!--                                        <img src="images/home/new.png" class="new" alt=""/>-->
                                 <?= Html::img('@web/images/product-details/new.jpg', ['alt' => 'Новинка', 'class' => 'newarrival']) ?>
                             <? elseif ($product->sale): ?>
                                 <?= Html::img('@web/images/home/sale.png', ['alt' => 'Распродажа', 'class' => 'newarrival']) ?>
-                                <!--                                        <img src="images/home/sale.png" class="new" alt=""/>-->
+
                             <? endif; ?>
-                            <!--                            <img src="/images/product-details/new.jpg" class="newarrival" alt="" />-->
                             <h2><?= $product->name ?></h2>
                             <p>Web ID: 1089772</p>
                             <img src="/images/product-details/rating.png" alt=""/>
@@ -106,7 +104,8 @@ use app\widgets\MenuWidget;
 									<span>US $<?= $product->price ?></span>
 									<label>Quantity:</label>
 									<input type="text" value="1" id="qty"/>
-									<a href="<?= \yii\helpers\Url::to(['cart/add', 'id'=>$product->id]) ?>" class="btn btn-default cart add-to-cart" data-id="<?= $product->id ?>">
+									<a href="<?= \yii\helpers\Url::to(['cart/add', 'id' => $product->id]) ?>"
+                                       class="btn btn-default cart add-to-cart" data-id="<?= $product->id ?>">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
 									</a>

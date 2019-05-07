@@ -60,6 +60,8 @@ $('.add-to-cart').on('click', function (e) {
     e.preventDefault();
     var id = $(this).data('id');
     var qty = $('#qty').val();
+    if (qty==null) qty=1;
+    console.log(qty);
     $.ajax({
         url: '/cart/add',
         data: {id: id, qty: qty},

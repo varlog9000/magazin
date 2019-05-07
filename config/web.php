@@ -20,15 +20,16 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '/category/<id:\d+>/page/<page:\d+>' => '/category/view',
-                '/category/<id:\d+>' => '/category/view',
-                '/product/<id:\d+>' => '/product/view',
-                '/search'=> '/category/search',
+                'category/<id:\d+>/page/<page:\d+>' => 'category/view',
+                'category/<id:\d+>' => 'category/view',
+                'product/<id:\d+>' => 'product/view',
+                'search'=> 'category/search',
             ],
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'X8Q0E15pEEob_iSTpOyKMCQDQFDqNRyr',
+            'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

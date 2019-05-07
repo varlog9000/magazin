@@ -70,8 +70,9 @@ use app\widgets\MenuWidget;
                                             <h2>$<?= $product->price ?></h2>
                                             <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>">
                                                 <p><?= $product->name ?></p></a>
-                                            <a href="#" class="btn btn-default add-to-cart"><i
-                                                        class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            <a href="#" class="btn btn-default add-to-cart"
+                                               data-id="<?= $product->id ?>">
+                                                <i class="fa fa-shopping-cart"></i> Add to cart </a>
                                         </div>
                                         <? if ($product->new): ?>
                                             <!--                                        <img src="images/home/new.png" class="new" alt=""/>-->
@@ -85,8 +86,10 @@ use app\widgets\MenuWidget;
                                                 <h2>$<?= $product->price ?></h2>
                                                 <a href="<?= \yii\helpers\Url::to(['product/view', 'id' => $product->id]) ?>">
                                                     <p><?= $product->name ?></p></a>
-                                                <a href="#" class="btn btn-default add-to-cart"><i
-                                                            class="fa fa-shopping-cart"></i>Add to cart</a>
+                                                <a href="#" class="btn btn-default add-to-cart"
+                                                   data-id="<?= $product->id ?>">
+                                                    <i class="fa fa-shopping-cart"></i> Add to cart </a>
+
                                             </div>
                                         </div>
                                     </div>
