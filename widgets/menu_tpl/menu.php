@@ -1,5 +1,5 @@
 <li class="panel-title panel panel-default">
-    <a href="<?= \yii\helpers\Url::to(['category/view', 'id' => $category['id']]) ?>" class="dcjq-parent">
+    <a href="<?= \yii\helpers\Url::to(['/category/view', 'id' => $category['id']]) ?>" class="dcjq-parent">
         <?= $category['name'] ?>
         <?php if (isset($category['childs'])) : ?>
             <span class="badge pull-right"><i class="fa fa-plus"></i></span>

@@ -11,15 +11,15 @@
             <tbody>
             <?php foreach ($session['cart'] as $id => $item) : ?>
                 <tr>
-                    <td><?= \yii\helpers\Html::img("@web/images/product/{$item['img']}",['style' => 'max-width: 50px; max-height: 50px;']) ?></td>
+                    <td><?= \yii\helpers\Html::img("@web/images/product/{$item['img']}", ['alt' => $item['name'], 'style' => 'max-width: 50px; max-height: 50px;']) ?></td>
                     <td><?= $item['name'] ?></td>
                     <td><?= $item['qty'] ?></td>
                     <td><?= $item['price'] ?></td>
-                    <td><span class="glyphicon glyphicon-remove text-danger del-item" aria-hidden="true"></span></td>
+                    <td><span class="glyphicon glyphicon-remove text-danger del-item" data-id="<?= $id ?>" aria-hidden="true"></span></td>
                 </tr>
             <?php endforeach; ?>
             <tr>
-                <td colspan="4">Итого: </td>
+                <td colspan="4">Итого:</td>
                 <td><?= $session['cart.qty'] ?></td>
             </tr>
             <tr>
