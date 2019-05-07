@@ -7,11 +7,12 @@
  */
 function debug($arr, $name = null)
 {
-    $htmlName = '';
-    if ($name) {
-        $htmlName = "$name: ";
-    }
-    echo $htmlName. '<pre>';
+//    $htmlName = '';
+//    if ($name) {
+//        $htmlName = "$name: ";
+//    }
+//    echo $htmlName. '<pre>';
+//    echo '<pre>';
     print_r($arr);
-    echo '</pre>';
+//    echo '</pre>';
 }
