@@ -14,6 +14,7 @@ use app\assets\ltAppAsset;
 use yii\bootstrap\Modal;
 use yii\helpers\Url;
 
+
 AppAsset::register($this);
 ltAppAsset::register($this);
 ?>
@@ -162,6 +163,10 @@ ltAppAsset::register($this);
 <!--    <ul class="catalog">-->
 <!--        --><? //= \app\widgets\MenuWidget::widget(['tpl' => 'menu']) ?>
 <!--    </ul>-->
+<div class="container">
+    <?php $alert = Alert::begin() ?>
+    <?php $alert::end() ?>
+</div>
 <?= $content; ?>
 
 <footer id="footer"><!--Footer-->
@@ -327,10 +332,10 @@ ltAppAsset::register($this);
 <?php
 Modal::begin([
     'header' => '<h2>Ваша корзина</h2>',
-    'id'=>'cart',
+    'id' => 'cart',
     'size' => 'modal-lg',
     'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
-<a href="'. Url::to(['cart/view']).'" type="button" class="btn btn-success">Оформить заказ</a>
+<a href="' . Url::to(['cart/view']) . '" type="button" class="btn btn-success">Оформить заказ</a>
 <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>',
 
 ]); ?>
