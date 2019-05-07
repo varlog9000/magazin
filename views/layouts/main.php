@@ -12,6 +12,7 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
 use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -323,12 +324,13 @@ ltAppAsset::register($this);
     </div>
 
 </footer><!--/Footer-->
-<?php Modal::begin([
+<?php
+Modal::begin([
     'header' => '<h2>Ваша корзина</h2>',
     'id'=>'cart',
     'size' => 'modal-lg',
     'footer' => '<button type="button" class="btn btn-default" data-dismiss="modal">Продолжить покупки</button>
-<button type="button" class="btn btn-success">Оформить заказ</button>
+<a href="'. Url::to(['cart/view']).'" type="button" class="btn btn-success">Оформить заказ</a>
 <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>',
 
 ]); ?>
